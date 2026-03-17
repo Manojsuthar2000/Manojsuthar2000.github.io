@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Manoj Suthar — iOS Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ─── RESET & BASE ───────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080C14;
+  --bg2:#0D1220;
+  --bg3:#111827;
+  --card:#131928;
+  --border:#1E2A3A;
+  --blue:#007AFF;
+  --orange:#F05138;
+  --green:#34C759;
+  --purple:#AF52DE;
+  --text:#E8EDF5;
+  --muted:#6B7280;
+  --dim:#374151;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ─── SCROLLBAR ──────────────────────────────── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px}
+
+/* ─── NOISE OVERLAY ──────────────────────────── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:1000;opacity:0.4;
+}
+
+/* ─── NAV ─────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  padding:1rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,12,20,0.8);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  z-index:100;
+}
+.nav-logo{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.85rem;
+  color:var(--blue);
+  letter-spacing:.05em;
+}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{
+  font-size:.85rem;font-weight:500;
+  color:var(--muted);
+  transition:color .2s;
+  letter-spacing:.04em;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  background:var(--blue);
+  color:#fff !important;
+  padding:.4rem 1rem;
+  border-radius:6px;
+  font-size:.8rem !important;
+  transition:opacity .2s !important;
+}
+.nav-cta:hover{opacity:.8}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);transition:.3s}
+
+/* ─── HERO ─────────────────────────────────────── */
+#hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:6rem 2rem 4rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size:60px 60px;
+  opacity:.25;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+}
+.hero-glow{
+  position:absolute;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(0,122,255,.15) 0%, transparent 70%);
+  top:-10%;right:-15%;
+  pointer-events:none;
+}
+.hero-glow2{
+  position:absolute;
+  width:400px;height:400px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(240,81,56,.08) 0%, transparent 70%);
+  bottom:10%;left:-10%;
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+  width:100%;
+  position:relative;z-index:1;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(0,122,255,.1);
+  border:1px solid rgba(0,122,255,.25);
+  color:var(--blue);
+  padding:.3rem .8rem;
+  border-radius:99px;
+  font-size:.75rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.hero-badge::before{
+  content:'';display:block;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 6px var(--green);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-name{
+  font-size:clamp(2.8rem,5vw,4.5rem);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-.02em;
+  margin-bottom:1rem;
+}
+.hero-name span{
+  background:linear-gradient(135deg,var(--blue),#5AC8FA);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-title{
+  font-size:1.15rem;
+  color:var(--muted);
+  margin-bottom:1.5rem;
+  font-weight:400;
+}
+.hero-title strong{color:var(--text);font-weight:600}
+.hero-desc{
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:2rem;
+  font-size:.95rem;
+  max-width:480px;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.7rem 1.4rem;
+  border-radius:8px;
+  font-weight:600;font-size:.88rem;
+  transition:all .2s;
+  cursor:pointer;border:none;
+}
+.btn-primary{
+  background:var(--blue);color:#fff;
+}
+.btn-primary:hover{background:#0066dd;transform:translateY(-1px)}
+.btn-outline{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--text);
+}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
+.hero-stats{
+  display:flex;gap:2rem;margin-top:2.5rem;
+  padding-top:2rem;
+  border-top:1px solid var(--border);
+}
+.stat-num{
+  font-size:1.8rem;font-weight:800;
+  color:var(--text);
+  line-height:1;
+  margin-bottom:.2rem;
+}
+.stat-num span{color:var(--blue)}
+.stat-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+
+/* CODE PANEL */
+.hero-code{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.78rem;
+  line-height:1.7;
+}
+.code-header{
+  background:var(--bg3);
+  padding:.6rem 1rem;
+  display:flex;align-items:center;gap:.5rem;
+  border-bottom:1px solid var(--border);
+}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot-r{background:#FF5F57}.dot-y{background:#FFBD2E}.dot-g{background:#28C840}
+.code-filename{
+  margin-left:.5rem;
+  font-size:.72rem;
+  color:var(--muted);
+}
+.code-body{padding:1.5rem}
+.c-kw{color:#FF79C6}
+.c-cl{color:#8BE9FD}
+.c-fn{color:#50FA7B}
+.c-st{color:#F1FA8C}
+.c-cm{color:#6272A4;font-style:italic}
+.c-nm{color:#BD93F9}
+.c-op{color:var(--muted)}
+.c-tx{color:var(--text)}
+.code-line{display:block;padding:.05rem 0}
+.cursor{
+  display:inline-block;width:2px;height:1em;
+  background:var(--blue);vertical-align:text-bottom;
+  animation:blink .8s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.code-indent{padding-left:1.5rem}
+.code-indent2{padding-left:3rem}
+
+/* ─── SECTIONS ─────────────────────────────────── */
+section{padding:5rem 2rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;color:var(--blue);
+  text-transform:uppercase;letter-spacing:.12em;
+  margin-bottom:.75rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.section-tag::before{content:'//'}
+.section-title{
+  font-size:clamp(1.8rem,3vw,2.5rem);
+  font-weight:800;letter-spacing:-.02em;
+  margin-bottom:.5rem;
+}
+.section-sub{color:var(--muted);font-size:.95rem;max-width:500px;line-height:1.7}
+
+/* ─── EXPERIENCE ────────────────────────────────── */
+#experience{background:var(--bg2)}
+.exp-grid{
+  margin-top:3rem;
+  display:flex;flex-direction:column;gap:1.5rem;
+}
+.exp-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:2rem;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .2s,transform .2s;
+}
+.exp-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.exp-card::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;
+  width:3px;
+  background:linear-gradient(180deg,var(--blue),#5AC8FA);
+}
+.exp-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  flex-wrap:wrap;gap:.5rem;
+  margin-bottom:1rem;
+}
+.exp-role{font-size:1.1rem;font-weight:700}
+.exp-company{color:var(--blue);font-weight:600;font-size:.9rem}
+.exp-period{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;color:var(--muted);
+  background:var(--bg3);
+  padding:.25rem .7rem;border-radius:99px;
+  white-space:nowrap;
+}
+.exp-location{color:var(--muted);font-size:.82rem;margin-bottom:1rem}
+.exp-points{display:flex;flex-direction:column;gap:.5rem}
+.exp-points li{
+  font-size:.88rem;color:var(--muted);
+  display:flex;gap:.75rem;
+  line-height:1.6;
+}
+.exp-points li::before{
+  content:'▸';color:var(--blue);
+  flex-shrink:0;margin-top:.05rem;
+}
+.exp-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+.tag{
+  font-size:.7rem;font-weight:600;
+  padding:.2rem .6rem;border-radius:4px;
+  letter-spacing:.04em;
+}
+.tag-blue{background:rgba(0,122,255,.12);color:var(--blue)}
+.tag-orange{background:rgba(240,81,56,.12);color:var(--orange)}
+.tag-green{background:rgba(52,199,89,.12);color:var(--green)}
+.tag-purple{background:rgba(175,82,222,.12);color:var(--purple)}
+
+/* ─── PROJECTS ──────────────────────────────────── */
+.projects-grid{
+  margin-top:3rem;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:1.5rem;
+}
+.project-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:2rem;
+  transition:all .25s;
+  position:relative;overflow:hidden;
+}
+.project-card:hover{
+  border-color:var(--blue);
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(0,122,255,.15);
+}
+.project-icon{
+  width:48px;height:48px;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+  margin-bottom:1.25rem;
+}
+.project-name{font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
+.project-desc{color:var(--muted);font-size:.85rem;line-height:1.7;margin-bottom:1.25rem}
+.project-metric{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;color:var(--green);
+  background:rgba(52,199,89,.1);
+  border:1px solid rgba(52,199,89,.2);
+  padding:.2rem .6rem;border-radius:4px;
+  margin-bottom:1rem;
+}
+
+/* ─── SKILLS ────────────────────────────────────── */
+#skills{background:var(--bg2)}
+.skills-grid{
+  margin-top:3rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1.5rem;
+}
+.skill-group{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.75rem;
+}
+.skill-group-title{
+  font-size:.8rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;
+  color:var(--muted);
+  margin-bottom:1.25rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.skill-group-title .icon{font-size:1rem}
+.skill-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{
+  font-size:.75rem;font-weight:500;
+  padding:.3rem .65rem;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:6px;
+  color:var(--text);
+  transition:all .15s;
+}
+.chip:hover{border-color:var(--blue);color:var(--blue)}
+.chip-expert{
+  border-color:rgba(0,122,255,.3);
+  background:rgba(0,122,255,.08);
+  color:var(--blue);
+}
+
+/* ─── EDUCATION ─────────────────────────────────── */
+.edu-grid{
+  margin-top:3rem;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1.5rem;
+}
+.edu-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.75rem;
+  transition:border-color .2s;
+}
+.edu-card:hover{border-color:var(--blue)}
+.edu-icon{font-size:1.8rem;margin-bottom:.75rem}
+.edu-degree{font-weight:700;margin-bottom:.25rem}
+.edu-school{color:var(--blue);font-size:.88rem;margin-bottom:.25rem}
+.edu-year{color:var(--muted);font-size:.8rem;margin-bottom:.5rem}
+.edu-grade{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.78rem;
+  color:var(--green);
+}
+
+/* ─── CONTACT ────────────────────────────────────── */
+#contact{background:var(--bg2)}
+.contact-inner{
+  margin-top:3rem;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:start;
+}
+.contact-links{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
+.contact-link{
+  display:flex;align-items:center;gap:1rem;
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:1rem 1.25rem;
+  border-radius:10px;
+  transition:all .2s;
+  cursor:pointer;
+}
+.contact-link:hover{border-color:var(--blue);transform:translateX(4px)}
+.contact-link-icon{
+  width:38px;height:38px;
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+}
+.contact-link-text{font-size:.88rem;font-weight:500}
+.contact-link-sub{font-size:.75rem;color:var(--muted);margin-top:.1rem}
+.contact-available{
+  background:rgba(52,199,89,.08);
+  border:1px solid rgba(52,199,89,.2);
+  border-radius:12px;
+  padding:1.5rem;
+  margin-top:2rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.avail-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 8px var(--green);
+  animation:pulse 2s infinite;
+  flex-shrink:0;
+}
+.avail-text{font-size:.85rem;color:var(--text)}
+.avail-text strong{color:var(--green)}
+
+/* contact form */
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group label{font-size:.8rem;font-weight:600;color:var(--muted);letter-spacing:.04em}
+.form-group input,.form-group textarea{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:.75rem 1rem;
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  font-size:.9rem;
+  outline:none;
+  transition:border-color .2s;
+  resize:none;
+}
+.form-group input:focus,.form-group textarea:focus{
+  border-color:var(--blue);
+}
+.form-group input::placeholder,.form-group textarea::placeholder{
+  color:var(--dim);
+}
+
+/* ─── FOOTER ─────────────────────────────────────── */
+footer{
+  padding:2rem;
+  border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-copy{color:var(--muted);font-size:.8rem}
+.footer-copy span{color:var(--blue)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:var(--muted);font-size:.8rem;transition:color .2s}
+.footer-links a:hover{color:var(--text)}
+
+/* ─── SCROLL REVEAL ─────────────────────────────── */
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.reveal.visible{opacity:1;transform:none}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-code{max-width:100%}
+  .contact-inner{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  nav{padding:.75rem 1.25rem}
+  .nav-links{display:none;position:fixed;top:60px;left:0;right:0;background:var(--bg2);flex-direction:column;padding:1.5rem;border-bottom:1px solid var(--border);gap:1.25rem}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:flex}
+  #hero{padding:5rem 1.25rem 3rem}
+  section{padding:4rem 1.25rem}
+  .hero-stats{gap:1.25rem}
+  .projects-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">manoj.suthar</span>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact" class="btn nav-cta">Hire Me</a></li>
+  </ul>
+  <div class="nav-toggle" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">Available for opportunities</div>
+      <h1 class="hero-name">Manoj<br/><span>Suthar</span></h1>
+      <p class="hero-title"><strong>iOS Developer</strong> — Swift & UIKit</p>
+      <p class="hero-desc">
+        3+ years building production iOS apps used by millions. Worked on LinkedIn and Level Supermind, 
+        shipping features end-to-end — from UI to StoreKit, Firebase to deep linking.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:manojsuthar2000@gmail.com" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Get In Touch
+        </a>
+        <a href="https://www.linkedin.com/in/manoj-suthar-0a8a99171/" target="_blank" class="btn btn-outline">LinkedIn →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-label">Years Exp</div>
+        </div>
+        <div>
+          <div class="stat-num">2<span></span></div>
+          <div class="stat-label">Companies</div>
+        </div>
+        <div>
+          <div class="stat-num">10<span>M+</span></div>
+          <div class="stat-label">Users Reached</div>
+        </div>
+        <div>
+          <div class="stat-num">30<span>%</span></div>
+          <div class="stat-label">Engagement ↑</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-code">
+      <div class="code-header">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="code-filename">ManojSuthar.swift</span>
+      </div>
+      <div class="code-body">
+        <span class="code-line"><span class="c-kw">import</span> <span class="c-cl">Foundation</span></span>
+        <span class="code-line">&nbsp;</span>
+        <span class="code-line"><span class="c-kw">struct</span> <span class="c-cl">Developer</span> {</span>
+        <span class="code-line code-indent"><span class="c-kw">let</span> name: <span class="c-cl">String</span></span>
+        <span class="code-line code-indent"><span class="c-kw">let</span> role: <span class="c-cl">String</span></span>
+        <span class="code-line code-indent"><span class="c-kw">let</span> skills: [<span class="c-cl">String</span>]</span>
+        <span class="code-line code-indent"><span class="c-kw">let</span> yearsExp: <span class="c-cl">Int</span></span>
+        <span class="code-line">}</span>
+        <span class="code-line">&nbsp;</span>
+        <span class="code-line"><span class="c-kw">let</span> me = <span class="c-cl">Developer</span>(</span>
+        <span class="code-line code-indent">name: <span class="c-st">"Manoj Suthar"</span>,</span>
+        <span class="code-line code-indent">role: <span class="c-st">"iOS Developer"</span>,</span>
+        <span class="code-line code-indent">skills: [<span class="c-st">"Swift"</span>, <span class="c-st">"UIKit"</span>,</span>
+        <span class="code-line code-indent2"><span class="c-st">"StoreKit"</span>, <span class="c-st">"Firebase"</span>],</span>
+        <span class="code-line code-indent">yearsExp: <span class="c-nm">3</span></span>
+        <span class="code-line">)</span>
+        <span class="code-line">&nbsp;</span>
+        <span class="code-line"><span class="c-cm">// 30% boost in user engagement 🚀</span></span>
+        <span class="code-line"><span class="c-fn">print</span>(<span class="c-st">"Open to work"</span>)<span class="cursor"></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Career</div>
+      <h2 class="section-title">Work Experience</h2>
+      <p class="section-sub">Production apps, real impact — shipped features used by millions.</p>
+    </div>
+
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">iOS Developer</div>
+            <div class="exp-company">Level Supermind · Mumbai</div>
+            <div class="exp-location">Mumbai, India</div>
+          </div>
+          <div class="exp-period">Jun 2024 — Present</div>
+        </div>
+        <ul class="exp-points">
+          <li>Built and shipped Meditation Journey, LSM Shop, Referral system, and IAP Courses — contributing to a 30% boost in user engagement.</li>
+          <li>Integrated MoEngage, RevenueCat, and Firebase for seamless StoreKit purchases, deep linking, and offline download support.</li>
+          <li>Worked on monetization architecture and app growth infrastructure from the ground up.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag tag-blue">Swift 5.x</span>
+          <span class="tag tag-blue">UIKit</span>
+          <span class="tag tag-orange">StoreKit</span>
+          <span class="tag tag-orange">RevenueCat</span>
+          <span class="tag tag-green">Firebase</span>
+          <span class="tag tag-green">MoEngage</span>
+          <span class="tag tag-purple">AVFoundation</span>
+          <span class="tag tag-purple">Deep Linking</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Software Engineer — iOS</div>
+            <div class="exp-company">Raja Software Labs · Pune</div>
+            <div class="exp-location">Pune, India</div>
+          </div>
+          <div class="exp-period">Jul 2022 — Jan 2024</div>
+        </div>
+        <ul class="exp-points">
+          <li>Contributed to the LinkedIn iOS app — enhancing Sharing, Feed, and Communication modules used by millions of users globally.</li>
+          <li>Led Swift migration efforts across legacy Objective-C modules, improving code maintainability.</li>
+          <li>Worked on ShareBox Redesign, significantly improving UX and overall app performance.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag tag-blue">Swift</span>
+          <span class="tag tag-blue">UIKit</span>
+          <span class="tag tag-orange">Objective-C</span>
+          <span class="tag tag-green">MVVM</span>
+          <span class="tag tag-green">REST APIs</span>
+          <span class="tag tag-purple">GCD</span>
+          <span class="tag tag-purple">Core Animation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Work</div>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-sub">Key features and systems I've built end-to-end.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:rgba(0,122,255,.12)">🧘</div>
+        <div class="project-name">Level Supermind App</div>
+        <div class="project-metric">↑ 30% user engagement</div>
+        <div class="project-desc">Full iOS app for guided meditation and wellness. Shipped Meditation Journey, LSM Shop, and core monetization infrastructure serving thousands of premium users.</div>
+        <div class="exp-tags">
+          <span class="tag tag-blue">Swift</span>
+          <span class="tag tag-orange">StoreKit</span>
+          <span class="tag tag-green">Firebase</span>
+          <span class="tag tag-purple">AVFoundation</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:rgba(0,119,181,.12)">💼</div>
+        <div class="project-name">LinkedIn iOS App</div>
+        <div class="project-metric">Millions of users</div>
+        <div class="project-desc">Enhanced Sharing, Feed, and Communication modules. Led Swift migration from Objective-C and contributed to the ShareBox Redesign impacting the core UX flow.</div>
+        <div class="exp-tags">
+          <span class="tag tag-blue">Swift</span>
+          <span class="tag tag-orange">Objective-C</span>
+          <span class="tag tag-green">MVVM</span>
+          <span class="tag tag-purple">Performance</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:rgba(240,81,56,.12)">🛒</div>
+        <div class="project-name">IAP & StoreKit Integration</div>
+        <div class="project-metric">RevenueCat powered</div>
+        <div class="project-desc">End-to-end in-app purchase flow with RevenueCat. Subscription management, paywall screens, receipt validation, and restore purchases — production-grade monetization.</div>
+        <div class="exp-tags">
+          <span class="tag tag-blue">StoreKit</span>
+          <span class="tag tag-orange">RevenueCat</span>
+          <span class="tag tag-green">Swift</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:rgba(52,199,89,.12)">🔗</div>
+        <div class="project-name">Deep Linking Architecture</div>
+        <div class="project-metric">Seamless user journeys</div>
+        <div class="project-desc">Designed deep linking system supporting Universal Links and custom URL schemes. Enabled seamless navigation from marketing campaigns directly into app content.</div>
+        <div class="exp-tags">
+          <span class="tag tag-blue">Deep Linking</span>
+          <span class="tag tag-orange">Universal Links</span>
+          <span class="tag tag-green">Firebase</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:rgba(175,82,222,.12)">🎁</div>
+        <div class="project-name">Referral System</div>
+        <div class="project-metric">Organic growth driver</div>
+        <div class="project-desc">Built a full referral system with tracking, tiered rewards, and social sharing. Drove organic installs and user growth through friend-invite mechanics.</div>
+        <div class="exp-tags">
+          <span class="tag tag-blue">Swift</span>
+          <span class="tag tag-orange">MoEngage</span>
+          <span class="tag tag-green">Firebase</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:rgba(255,149,0,.12)">📥</div>
+        <div class="project-name">Offline Downloads</div>
+        <div class="project-metric">Background download support</div>
+        <div class="project-desc">Implemented offline meditation and audio content downloads using background URL sessions, Realm persistence, and progress tracking — works seamlessly without connectivity.</div>
+        <div class="exp-tags">
+          <span class="tag tag-blue">URLSession</span>
+          <span class="tag tag-orange">Realm</span>
+          <span class="tag tag-green">AVFoundation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Toolkit</div>
+      <h2 class="section-title">Skills & Technologies</h2>
+      <p class="section-sub">Highlighted in <span style="color:var(--blue)">blue</span> = expert level.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <div class="skill-group-title"><span class="icon">📱</span> iOS Development</div>
+        <div class="skill-chips">
+          <span class="chip chip-expert">Swift 5.x</span>
+          <span class="chip chip-expert">UIKit</span>
+          <span class="chip">SwiftUI</span>
+          <span class="chip chip-expert">Auto Layout</span>
+          <span class="chip">Core Data</span>
+          <span class="chip">GCD</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">MVC</span>
+          <span class="chip">MVVM</span>
+          <span class="chip">Storyboard</span>
+          <span class="chip">Push Notifications</span>
+          <span class="chip chip-expert">In-App Purchases</span>
+          <span class="chip chip-expert">Deep Linking</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title"><span class="icon">🔧</span> Frameworks & Libraries</div>
+        <div class="skill-chips">
+          <span class="chip chip-expert">AVFoundation</span>
+          <span class="chip chip-expert">StoreKit</span>
+          <span class="chip chip-expert">Firebase</span>
+          <span class="chip chip-expert">RevenueCat</span>
+          <span class="chip chip-expert">MoEngage</span>
+          <span class="chip">Realm</span>
+          <span class="chip">Core Animation</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title"><span class="icon">🛠</span> Tools & Platforms</div>
+        <div class="skill-chips">
+          <span class="chip chip-expert">Xcode</span>
+          <span class="chip chip-expert">Git & GitHub</span>
+          <span class="chip">CocoaPods</span>
+          <span class="chip">Swift Package Manager</span>
+          <span class="chip">TestFlight</span>
+          <span class="chip">JIRA</span>
+          <span class="chip">Slack</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title"><span class="icon">💡</span> Languages & Principles</div>
+        <div class="skill-chips">
+          <span class="chip chip-expert">Objective-C</span>
+          <span class="chip">Python</span>
+          <span class="chip">C / C++</span>
+          <span class="chip">SQL</span>
+          <span class="chip">HTML / CSS</span>
+          <span class="chip chip-expert">OOP</span>
+          <span class="chip chip-expert">SOLID</span>
+          <span class="chip">DSA</span>
+          <span class="chip">Singleton</span>
+          <span class="chip">Observer</span>
+          <span class="chip">Delegate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Background</div>
+      <h2 class="section-title">Education</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree">B.Tech — Computer Science</div>
+        <div class="edu-school">Lovely Professional University</div>
+        <div class="edu-year">2018 – 2022</div>
+        <div class="edu-grade">CGPA: 8.27</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-icon">🏫</div>
+        <div class="edu-degree">HSC — Science</div>
+        <div class="edu-school">Karmaveer Bhaurao Patil College</div>
+        <div class="edu-year">2018</div>
+        <div class="edu-grade">83.69%</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-icon">🏅</div>
+        <div class="edu-degree">iOS App Dev Bootcamp</div>
+        <div class="edu-school">Dr. Angela Yu · Udemy</div>
+        <div class="edu-year">June 2024</div>
+        <div class="edu-grade">Certified ✓</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-icon">📊</div>
+        <div class="edu-degree">Data Structures & Algorithms</div>
+        <div class="edu-school">GeeksForGeeks</div>
+        <div class="edu-year">July 2020</div>
+        <div class="edu-grade">Certified ✓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Let's Talk</div>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-sub">Open to new roles, freelance projects, and collaborations.</p>
+    </div>
+
+    <div class="contact-inner">
+      <div>
+        <div class="contact-links">
+          <a href="mailto:manojsuthar2000@gmail.com" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(240,81,56,.12);color:var(--orange)">✉️</div>
+            <div>
+              <div class="contact-link-text">manojsuthar2000@gmail.com</div>
+              <div class="contact-link-sub">Best way to reach me</div>
+            </div>
+          </a>
+          <a href="tel:+918291737058" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(52,199,89,.12);color:var(--green)">📞</div>
+            <div>
+              <div class="contact-link-text">+91 82917 37058</div>
+              <div class="contact-link-sub">Mumbai, Maharashtra</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/manoj-suthar-0a8a99171/" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(0,119,181,.12);color:#0077b5">in</div>
+            <div>
+              <div class="contact-link-text">linkedin.com/in/manoj-suthar</div>
+              <div class="contact-link-sub">Connect with me</div>
+            </div>
+          </a>
+          <a href="https://github.com/your-github" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(255,255,255,.05);color:var(--text)">⌨️</div>
+            <div>
+              <div class="contact-link-text">github.com/manoj-suthar</div>
+              <div class="contact-link-sub">Open source & projects</div>
+            </div>
+          </a>
+        </div>
+        <div class="contact-available">
+          <div class="avail-dot"></div>
+          <div class="avail-text"><strong>Available for work</strong> — Currently open to iOS Developer roles</div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <div class="form-group">
+          <label>YOUR NAME</label>
+          <input type="text" placeholder="John Appleseed" />
+        </div>
+        <div class="form-group">
+          <label>EMAIL ADDRESS</label>
+          <input type="email" placeholder="hello@company.com" />
+        </div>
+        <div class="form-group">
+          <label>MESSAGE</label>
+          <textarea rows="5" placeholder="Tell me about the opportunity..."></textarea>
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center">
+          Send Message
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© 2025 <span>Manoj Suthar</span> — Built with Swift thinking ⚡</div>
+  <div class="footer-links">
+    <a href="mailto:manojsuthar2000@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/manoj-suthar-0a8a99171/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/your-github" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Stagger card children
+document.querySelectorAll('.exp-grid, .projects-grid, .skills-grid, .edu-grid').forEach(grid => {
+  grid.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.08) + 's';
+  });
+});
+
+// Smooth active nav
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if(window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+current ? 'var(--text)' : '';
+  });
+});
+</script>
+</body>
+</html>
