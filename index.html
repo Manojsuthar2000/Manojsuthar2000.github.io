@@ -30,6 +30,11 @@ nav{position:fixed;top:0;left:0;right:0;padding:1rem 2rem;display:flex;align-ite
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .nav-toggle span{display:block;width:22px;height:2px;background:var(--text);transition:.3s}
 
+/* PROFILE PHOTO */
+.hero-left-inner{display:flex;align-items:flex-start;gap:1.75rem;}
+.profile-photo-wrap{flex-shrink:0;align-self:stretch;}
+.profile-photo{width:auto;height:100%;min-height:140px;max-height:220px;aspect-ratio:4/5;border-radius:14px;object-fit:cover;object-position:center top;display:block;border:1px solid rgba(0,122,255,.35);box-shadow:0 0 0 4px rgba(0,122,255,.08),0 8px 32px rgba(0,0,0,.4);}
+
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;}
 .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.25;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);}
@@ -231,9 +236,16 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
   <div class="hero-glow2"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-badge">Available for opportunities</div>
-      <h1 class="hero-name">Manoj<br/><span>Suthar</span></h1>
-      <p class="hero-title"><strong>iOS Developer</strong> — Swift & UIKit</p>
+      <div class="hero-left-inner">
+        <div class="profile-photo-wrap">
+          <img class="profile-photo" src="assets/profile.jpeg" alt="Manoj Suthar" />
+        </div>
+        <div>
+          <div class="hero-badge">Available for opportunities</div>
+          <h1 class="hero-name">Manoj<br/><span>Suthar</span></h1>
+          <p class="hero-title"><strong>iOS Developer</strong> — Swift & UIKit</p>
+        </div>
+      </div>
       <p class="hero-desc">
         3+ years building production iOS apps. Worked on LinkedIn and Level Supermind,
         shipping features end-to-end — from UI to StoreKit, Firebase to deep linking.
