@@ -114,16 +114,29 @@ section{padding:5rem 2rem}
 .features-app-label{display:inline-flex;align-items:center;gap:.6rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:1.25rem;}
 .features-app-label .app-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);}
 .feature-list{display:flex;flex-direction:column;gap:1rem;}
-.feature-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;display:flex;align-items:flex-start;gap:1.25rem;transition:border-color .2s,transform .2s;}
-.feature-item:hover{border-color:var(--blue);transform:translateX(4px);}
+.feature-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:.75rem;transition:border-color .2s;}
+.feature-item:hover{border-color:var(--blue);}
+.feature-item-top{display:flex;align-items:flex-start;gap:1.25rem;}
 .feature-emoji{font-size:1.4rem;flex-shrink:0;width:40px;text-align:center;padding-top:.1rem;}
-.feature-name{font-weight:700;font-size:.95rem;margin-bottom:.2rem;}
+.feature-name{font-weight:700;font-size:.95rem;}
 .feature-desc{font-size:.82rem;color:var(--muted);line-height:1.5;}
-.feature-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem;}
+.feature-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
 .coming-soon-box{background:var(--card);border:1px dashed var(--border);border-radius:12px;padding:2rem;text-align:center;}
 .coming-soon-box .cs-icon{font-size:2rem;margin-bottom:.75rem;}
 .coming-soon-box .cs-title{font-weight:700;margin-bottom:.4rem;}
 .coming-soon-box .cs-desc{font-size:.85rem;color:var(--muted);}
+
+/* SCREENSHOTS SCROLL */
+.screenshots-scroll{display:flex;gap:1rem;overflow-x:auto;padding-bottom:.75rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+.screenshots-scroll::-webkit-scrollbar{height:3px;}
+.screenshots-scroll::-webkit-scrollbar-track{background:var(--bg3);border-radius:2px;}
+.screenshots-scroll::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px;}
+
+/* IPHONE FRAME — used for both video and screenshots */
+.iphone-frame{position:relative;flex-shrink:0;width:220px;scroll-snap-align:start;}
+.iphone-frame .iphone-svg{width:100%;display:block;}
+.iphone-frame img,
+.iphone-frame video{position:absolute;top:3.2%;left:6%;width:88%;height:93.5%;border-radius:22px;object-fit:cover;background:var(--bg3);}
 
 /* SKILLS */
 #skills{background:var(--bg2)}
@@ -146,13 +159,13 @@ section{padding:5rem 2rem}
 .edu-card:hover{border-color:var(--blue)}
 .edu-icon{font-size:1.8rem;margin-bottom:.75rem}
 .edu-logo{width:48px;height:48px;border-radius:10px;object-fit:contain;background:#fff;padding:5px;margin-bottom:.75rem;display:block;}
-
-/* CERT LOGO */
-.cert-logo{width:42px;height:42px;border-radius:9px;object-fit:contain;background:#fff;padding:4px;flex-shrink:0;}
 .edu-degree{font-weight:700;margin-bottom:.25rem}
 .edu-school{color:var(--blue);font-size:.88rem;margin-bottom:.25rem}
 .edu-year{color:var(--muted);font-size:.8rem;margin-bottom:.5rem}
 .edu-grade{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--green);}
+
+/* CERT LOGO */
+.cert-logo{width:42px;height:42px;border-radius:9px;object-fit:contain;background:#fff;padding:4px;flex-shrink:0;}
 
 /* CERTIFICATIONS */
 #certifications{background:var(--bg)}
@@ -209,12 +222,12 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
   section{padding:4rem 1.25rem}
   .hero-stats{gap:1.25rem}
   .projects-grid{grid-template-columns:1fr}
+  .iphone-frame{width:160px;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV — FIX 1: Full name, clean style -->
 <nav>
   <span class="nav-logo">Manoj <span>Suthar</span></span>
   <ul class="nav-links" id="navLinks">
@@ -251,13 +264,12 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
         shipping features end-to-end — from UI to StoreKit, Firebase to deep linking.
       </p>
       <div class="hero-actions">
-        <a href="/cdn-cgi/l/email-protection#2944484746435a5c5d41485b1b191919694e44484045074a4644" class="btn btn-primary">
+        <a href="mailto:manojsuthar2612@gmail.com" class="btn btn-primary">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           Get In Touch
         </a>
         <a href="https://www.linkedin.com/in/manoj-suthar-0a8a99171/" target="_blank" class="btn btn-outline">LinkedIn →</a>
       </div>
-      <!-- FIX 2: Removed 10M+ and 30% stats -->
       <div class="hero-stats">
         <div>
           <div class="stat-num">3<span>+</span></div>
@@ -274,7 +286,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
       </div>
     </div>
 
-    <!-- FIX 3 & 4: More iOS skills in code, removed 30% comment -->
     <div class="hero-code">
       <div class="code-header">
         <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
@@ -304,7 +315,7 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
   </div>
 </section>
 
-<!-- EXPERIENCE — FIX 5: Removed duplicate location line -->
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-inner">
     <div class="reveal">
@@ -364,7 +375,7 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
   </div>
 </section>
 
-<!-- PROJECTS — FIX 6, 7, 8, 9 -->
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="reveal">
@@ -373,7 +384,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
       <p class="section-sub">Apps I've worked on and key features I've shipped.</p>
     </div>
 
-    <!-- FIX 6: Only 2 real apps, no fake metric tags -->
     <div class="projects-grid">
       <div class="project-card reveal">
         <img class="project-logo" src="assets/logos/levelsupermind.png" alt="Level Supermind" />
@@ -396,73 +406,167 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
       </div>
     </div>
 
-    <!-- FIX 8: Level Supermind features list — detailed showcase coming soon -->
+    <!-- FEATURES LIST -->
     <div class="features-section reveal">
       <div class="features-app-label">
         <span class="app-dot"></span>
         Features built at Level Supermind
       </div>
       <div class="feature-list">
-        <div class="feature-item">
-          <div class="feature-emoji">🧭</div>
-          <div>
-            <div class="feature-name">Meditation Journey</div>
-            <div class="feature-desc">Guided multi-step meditation flow with audio playback, progress tracking, and session history.</div>
-            <div class="feature-tags">
-              <span class="tag tag-blue">AVFoundation</span><span class="tag tag-orange">UIKit</span><span class="tag tag-green">Core Data</span>
-            </div>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-emoji">🛒</div>
-          <div>
-            <div class="feature-name">LSM Shop</div>
-            <div class="feature-desc">Full-featured in-app shop with product listings, cart, and secure checkout experience.</div>
-            <div class="feature-tags">
-              <span class="tag tag-blue">UIKit</span><span class="tag tag-orange">REST APIs</span><span class="tag tag-green">StoreKit</span>
-            </div>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-emoji">🎁</div>
-          <div>
-            <div class="feature-name">Referral System</div>
-            <div class="feature-desc">Referral flow with tracking, reward logic, and social sharing to drive organic user growth.</div>
-            <div class="feature-tags">
-              <span class="tag tag-blue">Swift</span><span class="tag tag-orange">MoEngage</span><span class="tag tag-green">Firebase</span>
-            </div>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-emoji">📚</div>
-          <div>
-            <div class="feature-name">IAP Courses</div>
-            <div class="feature-desc">In-app purchase course system with RevenueCat, subscription management, paywall screens, and receipt validation.</div>
-            <div class="feature-tags">
-              <span class="tag tag-blue">StoreKit</span><span class="tag tag-orange">RevenueCat</span><span class="tag tag-green">Swift</span>
-            </div>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-emoji">📥</div>
-          <div>
-            <div class="feature-name">Offline Downloads</div>
-            <div class="feature-desc">Background audio downloads using URLSession with Realm persistence and real-time progress tracking.</div>
-            <div class="feature-tags">
-              <span class="tag tag-blue">URLSession</span><span class="tag tag-orange">Realm</span><span class="tag tag-green">AVFoundation</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="coming-soon-box" style="margin-top:2rem;">
-        <div class="cs-icon">🎬</div>
-        <div class="cs-title">Detailed Feature Showcase — Coming Soon</div>
-        <div class="cs-desc">Full descriptions, screenshots, and screen recordings for each feature will be added here.</div>
+        <!-- MEDITATION JOURNEY — with media -->
+        <div class="feature-item">
+          <!-- 1. SINGLE HORIZONTAL SCROLL ROW: video first, then screenshots -->
+          <div class="screenshots-scroll">
+            <!-- VIDEO (first) -->
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <video src="assets/meditation-journey/recording.mp4" autoplay loop muted playsinline></video>
+            </div>
+            <!-- SCREENSHOTS -->
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/meditation-journey/screenshot-1.jpeg" alt="Screenshot 1" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/meditation-journey/screenshot-2.jpeg" alt="Screenshot 2" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/meditation-journey/screenshot-3.jpeg" alt="Screenshot 3" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/meditation-journey/screenshot-4.jpeg" alt="Screenshot 4" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/meditation-journey/screenshot-5.jpeg" alt="Screenshot 5" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/meditation-journey/screenshot-6.jpeg" alt="Screenshot 6" />
+            </div>
+          </div>
+          <!-- 2. TITLE -->
+          <div class="feature-name">Meditation Journey</div>
+          <!-- 3. DESCRIPTION -->
+          <div class="feature-desc" style="font-size:.92rem;">A guided multi-step meditation flow with series-based path progression, audio playback via AVPlayer, Lottie animations, filterable tag-based content discovery, and session history tracking.</div>
+          <!-- 4. TAGS -->
+          <div class="feature-tags">
+            <span class="tag tag-blue">UIBezierPath</span><span class="tag tag-blue">AVFoundation</span><span class="tag tag-orange">Lottie</span><span class="tag tag-orange">TTGTags</span><span class="tag tag-green">SwiftyGif</span><span class="tag tag-green">MediaPlayer</span><span class="tag tag-purple">UIKit</span>
+          </div>
+        </div>
+
+        <!-- OTHER FEATURES -->
+        <div class="feature-item">
+          <div class="feature-item-top">
+            <div class="feature-emoji">🛒</div>
+            <div>
+              <div class="feature-name">LSM Shop</div>
+              <div class="feature-desc">Full-featured in-app shop with product listings, cart, and secure checkout experience.</div>
+              <div class="feature-tags">
+                <span class="tag tag-blue">UIKit</span><span class="tag tag-orange">REST APIs</span><span class="tag tag-green">StoreKit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-top">
+            <div class="feature-emoji">🎁</div>
+            <div>
+              <div class="feature-name">Referral System</div>
+              <div class="feature-desc">Referral flow with tracking, reward logic, and social sharing to drive organic user growth.</div>
+              <div class="feature-tags">
+                <span class="tag tag-blue">Swift</span><span class="tag tag-orange">MoEngage</span><span class="tag tag-green">Firebase</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-top">
+            <div class="feature-emoji">📚</div>
+            <div>
+              <div class="feature-name">IAP Courses</div>
+              <div class="feature-desc">In-app purchase course system with RevenueCat, subscription management, paywall screens, and receipt validation.</div>
+              <div class="feature-tags">
+                <span class="tag tag-blue">StoreKit</span><span class="tag tag-orange">RevenueCat</span><span class="tag tag-green">Swift</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-top">
+            <div class="feature-emoji">📥</div>
+            <div>
+              <div class="feature-name">Offline Downloads</div>
+              <div class="feature-desc">Background audio downloads using URLSession with Realm persistence and real-time progress tracking.</div>
+              <div class="feature-tags">
+                <span class="tag tag-blue">URLSession</span><span class="tag tag-orange">Realm</span><span class="tag tag-green">AVFoundation</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- FIX 9: Personal projects placeholder -->
     <div class="coming-soon-box reveal" style="margin-top:2rem;">
       <div class="cs-icon">🔧</div>
       <div class="cs-title">Personal Projects — Coming Soon</div>
@@ -524,14 +628,13 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
   </div>
 </section>
 
-<!-- EDUCATION — FIX 10 & 11 -->
+<!-- EDUCATION -->
 <section id="education">
   <div class="section-inner">
     <div class="reveal">
       <div class="section-tag">Background</div>
       <h2 class="section-title">Education</h2>
     </div>
-    <!-- FIX 10: CSE full name. FIX 11: All 3 schools shown, certs removed from here -->
     <div class="edu-section-grid">
       <div class="edu-card reveal">
         <img class="edu-logo" src="assets/logos/lpu.png" alt="LPU" />
@@ -558,7 +661,7 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
   </div>
 </section>
 
-<!-- CERTIFICATIONS — FIX 11: Moved certs out of Education into own section -->
+<!-- CERTIFICATIONS -->
 <section id="certifications" style="background:var(--bg);">
   <div class="section-inner">
     <div class="reveal">
@@ -586,7 +689,7 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
   </div>
 </section>
 
-<!-- CONTACT — FIX 12: GitHub URL updated -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <div class="reveal">
@@ -597,10 +700,10 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
     <div class="contact-inner">
       <div>
         <div class="contact-links">
-          <a href="/cdn-cgi/l/email-protection#f79a9699989d8482839f9685c5c7c7c7b7909a969e9bd994989a" class="contact-link">
+          <a href="mailto:manojsuthar2612@gmail.com" class="contact-link">
             <div class="contact-link-icon" style="background:rgba(240,81,56,.12);color:var(--orange)">✉️</div>
             <div>
-              <div class="contact-link-text"><span class="__cf_email__" data-cfemail="ea878b848580999f9e828b98d8dadadaaa8d878b8386c4898587">[email&#160;protected]</span></div>
+              <div class="contact-link-text">manojsuthar2612@gmail.com</div>
               <div class="contact-link-sub">Best way to reach me</div>
             </div>
           </a>
@@ -631,7 +734,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
           <div class="avail-text"><strong>Available for work</strong> — Currently open to iOS Developer roles</div>
         </div>
       </div>
-
       <div class="contact-form reveal">
         <div class="form-group">
           <label>YOUR NAME</label>
@@ -657,7 +759,7 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
 <footer>
   <div class="footer-copy">© 2025 <span>Manoj Suthar</span> — Built with Swift thinking ⚡</div>
   <div class="footer-links">
-    <a href="/cdn-cgi/l/email-protection#412c202f2e2b3234352920337371717101262c20282d6f222e2c">Email</a>
+    <a href="mailto:manojsuthar2612@gmail.com">Email</a>
     <a href="https://www.linkedin.com/in/manoj-suthar-0a8a99171/" target="_blank">LinkedIn</a>
     <a href="https://github.com/Manojsuthar2000" target="_blank">GitHub</a>
   </div>
@@ -687,3 +789,5 @@ window.addEventListener('scroll', () => {
   });
 });
 </script>
+</body>
+</html>
