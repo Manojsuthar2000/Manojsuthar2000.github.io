@@ -107,6 +107,7 @@ section{padding:5rem 2rem}
 .project-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,122,255,.15);}
 .project-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.25rem;}
 .project-name{font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
+.project-card-header .project-name{margin-bottom:0;}
 .project-desc{color:var(--muted);font-size:.85rem;line-height:1.7;margin-bottom:1.25rem}
 
 /* FEATURES */
@@ -151,7 +152,8 @@ section{padding:5rem 2rem}
 /* COMPANY / APP LOGOS */
 .exp-logo{width:44px;height:44px;border-radius:10px;object-fit:contain;background:#fff;padding:4px;flex-shrink:0;}
 .exp-header-left{display:flex;align-items:center;gap:.85rem;}
-.project-logo{width:52px;height:52px;border-radius:14px;object-fit:contain;margin-bottom:1.25rem;background:#fff;padding:5px;}
+.project-logo{width:52px;height:52px;border-radius:14px;object-fit:contain;background:#fff;padding:5px;flex-shrink:0;}
+.project-card-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
 
 /* EDUCATION */
 .edu-section-grid{margin-top:3rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
@@ -341,10 +343,11 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
           <li>Worked on monetization architecture and app growth infrastructure from the ground up.</li>
         </ul>
         <div class="exp-tags">
-          <span class="tag tag-blue">Swift 5.x</span><span class="tag tag-blue">UIKit</span>
+          <span class="tag tag-blue">Swift</span><span class="tag tag-blue">UIKit</span>
           <span class="tag tag-orange">StoreKit</span><span class="tag tag-orange">RevenueCat</span>
-          <span class="tag tag-green">Firebase</span><span class="tag tag-green">MoEngage</span>
-          <span class="tag tag-purple">AVFoundation</span><span class="tag tag-purple">Deep Linking</span>
+          <span class="tag tag-green">AVFoundation</span><span class="tag tag-green">Core Data</span>
+          <span class="tag tag-green">MoEngage</span><span class="tag tag-purple">Deep Linking</span>
+          <span class="tag tag-purple">Push Notifications</span><span class="tag tag-purple">GCD</span>
         </div>
       </div>
 
@@ -365,10 +368,10 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
           <li>Worked on ShareBox Redesign, significantly improving UX and overall app performance.</li>
         </ul>
         <div class="exp-tags">
-          <span class="tag tag-blue">Swift</span><span class="tag tag-blue">UIKit</span>
-          <span class="tag tag-orange">Objective-C</span>
-          <span class="tag tag-green">MVVM</span><span class="tag tag-green">REST APIs</span>
-          <span class="tag tag-purple">GCD</span><span class="tag tag-purple">Core Animation</span>
+          <span class="tag tag-blue">Swift</span><span class="tag tag-blue">Objective-C</span>
+          <span class="tag tag-orange">UIKit</span><span class="tag tag-orange">MVVM</span>
+          <span class="tag tag-green">REST APIs</span><span class="tag tag-green">GCD</span>
+          <span class="tag tag-purple">Unit Testing</span><span class="tag tag-purple">Git</span><span class="tag tag-purple">Jira</span>
         </div>
       </div>
     </div>
@@ -386,22 +389,30 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
 
     <div class="projects-grid">
       <div class="project-card reveal">
-        <img class="project-logo" src="assets/logos/levelsupermind.png" alt="Level Supermind" />
-        <div class="project-name">Level Supermind</div>
+        <div class="project-card-header">
+          <img class="project-logo" src="assets/logos/levelsupermind.png" alt="Level Supermind" />
+          <div class="project-name">Level Supermind</div>
+        </div>
         <div class="project-desc">iOS app for guided meditation, spiritual wellness, and mindfulness. Contributed to core app architecture, monetization, and multiple major features from the ground up.</div>
         <div class="exp-tags">
-          <span class="tag tag-blue">Swift</span><span class="tag tag-orange">StoreKit</span>
-          <span class="tag tag-green">Firebase</span><span class="tag tag-purple">AVFoundation</span><span class="tag tag-purple">Realm</span>
+          <span class="tag tag-blue">Swift</span><span class="tag tag-blue">UIKit</span>
+          <span class="tag tag-orange">StoreKit</span><span class="tag tag-orange">RevenueCat</span>
+          <span class="tag tag-green">AVFoundation</span><span class="tag tag-green">Core Data</span>
+          <span class="tag tag-purple">Deep Linking</span><span class="tag tag-purple">Push Notifications</span>
         </div>
       </div>
 
       <div class="project-card reveal">
-        <img class="project-logo" src="assets/logos/linkedin.png" alt="LinkedIn" />
-        <div class="project-name">LinkedIn iOS App</div>
+        <div class="project-card-header">
+          <img class="project-logo" src="assets/logos/linkedin.png" alt="LinkedIn" />
+          <div class="project-name">LinkedIn iOS App</div>
+        </div>
         <div class="project-desc">One of the world's most used professional networking apps. Enhanced Sharing, Feed, and Communication modules. Led Swift migration and contributed to the ShareBox Redesign.</div>
         <div class="exp-tags">
-          <span class="tag tag-blue">Swift</span><span class="tag tag-orange">Objective-C</span>
-          <span class="tag tag-green">MVVM</span><span class="tag tag-purple">Core Animation</span>
+          <span class="tag tag-blue">Swift</span><span class="tag tag-blue">Objective-C</span>
+          <span class="tag tag-orange">UIKit</span><span class="tag tag-orange">MVVM</span>
+          <span class="tag tag-green">REST APIs</span><span class="tag tag-green">GCD</span>
+          <span class="tag tag-purple">Unit Testing</span><span class="tag tag-purple">Git</span>
         </div>
       </div>
     </div>
@@ -512,6 +523,203 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
           <!-- 4. TAGS -->
           <div class="feature-tags">
             <span class="tag tag-blue">UIBezierPath</span><span class="tag tag-blue">AVFoundation</span><span class="tag tag-orange">Lottie</span><span class="tag tag-orange">TTGTags</span><span class="tag tag-green">SwiftyGif</span><span class="tag tag-green">MediaPlayer</span><span class="tag tag-purple">UIKit</span>
+          </div>
+        </div>
+
+        <!-- OTHER FEATURES -->
+        <div class="feature-item">
+          <!-- 1. SINGLE HORIZONTAL SCROLL ROW: video first, then screenshots -->
+          <div class="screenshots-scroll">
+            <!-- VIDEO (first) -->
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <video src="assets/workout-planner/recording.mp4" autoplay loop muted playsinline></video>
+            </div>
+            <!-- SCREENSHOTS -->
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-1.jpeg" alt="Screenshot 1" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-2.jpeg" alt="Screenshot 2" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-3.jpeg" alt="Screenshot 3" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-4.jpeg" alt="Screenshot 4" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-5.jpeg" alt="Screenshot 5" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-6.jpeg" alt="Screenshot 6" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-7.jpeg" alt="Screenshot 7" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-8.jpeg" alt="Screenshot 8" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-9.jpeg" alt="Screenshot 9" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-10.jpeg" alt="Screenshot 10" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-11.jpeg" alt="Screenshot 11" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-12.jpeg" alt="Screenshot 12" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-13.jpeg" alt="Screenshot 13" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/workout-planner/screenshot-14.jpeg" alt="Screenshot 14" />
+            </div>
+          </div>
+          <!-- 2. TITLE -->
+          <div class="feature-name">Workout Planner</div>
+          <!-- 3. DESCRIPTION -->
+          <div class="feature-desc" style="font-size:.92rem;">An AI-powered personalised workout planner with weekly day-wise scheduling, exercise series tracking, calorie and weight monitoring, a nutrition diet plan, and a guided setup questionnaire to tailor the plan to user goals.</div>
+          <!-- 4. TAGS -->
+          <div class="feature-tags">
+            <span class="tag tag-blue">UIKit</span><span class="tag tag-blue">GCD</span><span class="tag tag-orange">Lottie</span><span class="tag tag-orange">MarqueeLabel</span><span class="tag tag-green">DGCharts</span><span class="tag tag-green">SkeletonView</span><span class="tag tag-purple">MoEngage</span><span class="tag tag-purple">REST APIs</span>
           </div>
         </div>
 
