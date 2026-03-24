@@ -17,7 +17,6 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;line
 a{color:inherit;text-decoration:none}ul{list-style:none}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:0.4;}
-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,12,20,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:100;}
 .nav-logo{font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-.01em;}
@@ -29,12 +28,10 @@ nav{position:fixed;top:0;left:0;right:0;padding:1rem 2rem;display:flex;align-ite
 .nav-cta:hover{opacity:.8}
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .nav-toggle span{display:block;width:22px;height:2px;background:var(--text);transition:.3s}
-
 /* PROFILE PHOTO */
 .hero-left-inner{display:flex;align-items:flex-start;gap:1.75rem;}
 .profile-photo-wrap{flex-shrink:0;align-self:stretch;}
 .profile-photo{width:auto;height:100%;min-height:140px;max-height:220px;aspect-ratio:4/5;border-radius:14px;object-fit:cover;object-position:center top;display:block;border:1px solid rgba(0,122,255,.35);box-shadow:0 0 0 4px rgba(0,122,255,.08),0 8px 32px rgba(0,0,0,.4);}
-
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;}
 .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.25;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);}
@@ -59,7 +56,6 @@ nav{position:fixed;top:0;left:0;right:0;padding:1rem 2rem;display:flex;align-ite
 .stat-num{font-size:1.8rem;font-weight:800;color:var(--text);line-height:1;margin-bottom:.2rem;}
 .stat-num span{color:var(--blue)}
 .stat-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-
 /* CODE PANEL */
 .hero-code{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.7;}
 .code-header{background:var(--bg3);padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border);}
@@ -72,7 +68,6 @@ nav{position:fixed;top:0;left:0;right:0;padding:1rem 2rem;display:flex;align-ite
 .cursor{display:inline-block;width:2px;height:1em;background:var(--blue);vertical-align:text-bottom;animation:blink .8s step-end infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .code-indent{padding-left:1.5rem}.code-indent2{padding-left:3rem}
-
 /* SECTIONS */
 section{padding:5rem 2rem}
 .section-inner{max-width:1100px;margin:0 auto}
@@ -80,7 +75,6 @@ section{padding:5rem 2rem}
 .section-tag::before{content:'//'}
 .section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.5rem;}
 .section-sub{color:var(--muted);font-size:.95rem;max-width:500px;line-height:1.7}
-
 /* EXPERIENCE */
 #experience{background:var(--bg)}
 #projects{background:var(--bg2)}
@@ -101,7 +95,6 @@ section{padding:5rem 2rem}
 .tag-orange{background:rgba(240,81,56,.12);color:var(--orange)}
 .tag-green{background:rgba(52,199,89,.12);color:var(--green)}
 .tag-purple{background:rgba(175,82,222,.12);color:var(--purple)}
-
 /* PROJECTS */
 .projects-grid{margin-top:3rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;}
 .project-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:all .25s;position:relative;overflow:hidden;}
@@ -110,7 +103,6 @@ section{padding:5rem 2rem}
 .project-name{font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
 .project-card-header .project-name{margin-bottom:0;}
 .project-desc{color:var(--muted);font-size:.85rem;line-height:1.7;margin-bottom:1.25rem}
-
 /* FEATURES */
 .features-section{margin-top:3rem;}
 .features-app-label{display:inline-flex;align-items:center;gap:.6rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:1.25rem;}
@@ -127,19 +119,16 @@ section{padding:5rem 2rem}
 .coming-soon-box .cs-icon{font-size:2rem;margin-bottom:.75rem;}
 .coming-soon-box .cs-title{font-weight:700;margin-bottom:.4rem;}
 .coming-soon-box .cs-desc{font-size:.85rem;color:var(--muted);}
-
 /* SCREENSHOTS SCROLL */
 .screenshots-scroll{display:flex;gap:1rem;overflow-x:auto;padding-bottom:.75rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
 .screenshots-scroll::-webkit-scrollbar{height:3px;}
 .screenshots-scroll::-webkit-scrollbar-track{background:var(--bg3);border-radius:2px;}
 .screenshots-scroll::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px;}
-
 /* IPHONE FRAME — used for both video and screenshots */
 .iphone-frame{position:relative;flex-shrink:0;width:220px;scroll-snap-align:start;}
 .iphone-frame .iphone-svg{width:100%;display:block;}
 .iphone-frame img,
 .iphone-frame video{position:absolute;top:3.2%;left:6%;width:88%;height:93.5%;border-radius:22px;object-fit:cover;background:var(--bg3);}
-
 /* SKILLS */
 #skills{background:var(--bg2)}
 .skills-grid{margin-top:3rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
@@ -149,13 +138,11 @@ section{padding:5rem 2rem}
 .chip:hover{border-color:var(--blue);color:var(--blue)}
 .chip-expert{border-color:rgba(0,122,255,.3);background:rgba(0,122,255,.08);color:var(--blue);}
 .skill-chips{display:flex;flex-wrap:wrap;gap:.5rem}
-
 /* COMPANY / APP LOGOS */
 .exp-logo{width:44px;height:44px;border-radius:10px;object-fit:contain;background:#fff;padding:4px;flex-shrink:0;}
 .exp-header-left{display:flex;align-items:center;gap:.85rem;}
 .project-logo{width:52px;height:52px;border-radius:14px;object-fit:contain;background:#fff;padding:5px;flex-shrink:0;}
 .project-card-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
-
 /* EDUCATION */
 .edu-section-grid{margin-top:3rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
 .edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;transition:border-color .2s;}
@@ -166,10 +153,8 @@ section{padding:5rem 2rem}
 .edu-school{color:var(--blue);font-size:.88rem;margin-bottom:.25rem}
 .edu-year{color:var(--muted);font-size:.8rem;margin-bottom:.5rem}
 .edu-grade{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--green);}
-
 /* CERT LOGO */
 .cert-logo{width:42px;height:42px;border-radius:9px;object-fit:contain;background:#fff;padding:4px;flex-shrink:0;}
-
 /* CERTIFICATIONS */
 #certifications{background:var(--bg)}
 .cert-grid{margin-top:3rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
@@ -179,7 +164,6 @@ section{padding:5rem 2rem}
 .cert-name{font-weight:700;font-size:.95rem;margin-bottom:.2rem;}
 .cert-by{color:var(--blue);font-size:.82rem;margin-bottom:.2rem;}
 .cert-year{color:var(--muted);font-size:.75rem;font-family:'JetBrains Mono',monospace;}
-
 /* CONTACT */
 #contact{background:var(--bg2)}
 .contact-inner{margin-top:3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
@@ -199,7 +183,6 @@ section{padding:5rem 2rem}
 .form-group input,.form-group textarea{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;resize:none;}
 .form-group input:focus,.form-group textarea:focus{border-color:var(--blue);}
 .form-group input::placeholder,.form-group textarea::placeholder{color:var(--dim);}
-
 /* FOOTER */
 footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .footer-copy{color:var(--muted);font-size:.8rem}
@@ -207,11 +190,9 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
 .footer-links{display:flex;gap:1.5rem}
 .footer-links a{color:var(--muted);font-size:.8rem;transition:color .2s}
 .footer-links a:hover{color:var(--text)}
-
 /* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none}
-
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;gap:3rem}
   .contact-inner{grid-template-columns:1fr}
@@ -230,7 +211,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
 </style>
 </head>
 <body>
-
 <nav>
   <span class="nav-logo">Manoj <span>Suthar</span></span>
   <ul class="nav-links" id="navLinks">
@@ -244,7 +224,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
     <span></span><span></span><span></span>
   </div>
 </nav>
-
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grid-bg"></div>
@@ -288,7 +267,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
         </div>
       </div>
     </div>
-
     <div class="hero-code">
       <div class="code-header">
         <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
@@ -317,7 +295,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
     </div>
   </div>
 </section>
-
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
@@ -326,7 +303,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
       <h2 class="section-title">Apps & Features</h2>
       <p class="section-sub">Apps I've worked on and key features I've shipped.</p>
     </div>
-
     <div class="projects-grid">
       <div class="project-card reveal">
         <div class="project-card-header">
@@ -341,7 +317,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
           <span class="tag tag-purple">Deep Linking</span><span class="tag tag-purple">Push Notifications</span>
         </div>
       </div>
-
       <div class="project-card reveal">
         <div class="project-card-header">
           <img class="project-logo" src="assets/logos/linkedin.png" alt="LinkedIn" />
@@ -356,7 +331,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
         </div>
       </div>
     </div>
-
     <!-- FEATURES LIST -->
     <div class="features-section reveal">
       <div class="features-app-label">
@@ -364,21 +338,14 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
         Features built at Level Supermind
       </div>
       <div class="feature-list">
-
-        <!-- MEDITATION JOURNEY — with media -->
+        <!-- MEDITATION JOURNEY -->
         <div class="feature-item">
-          <!-- 2. TITLE -->
           <div class="feature-name">Meditation Journey</div>
-          <!-- 3. DESCRIPTION -->
           <div class="feature-desc" style="font-size:.92rem;">A guided multi-step meditation flow with series-based path progression, audio playback via AVPlayer, Lottie animations, filterable tag-based content discovery, and session history tracking.</div>
-          <!-- 4. TAGS -->
           <div class="feature-tags">
             <span class="tag tag-blue">UIBezierPath</span><span class="tag tag-blue">AVFoundation</span><span class="tag tag-orange">Lottie</span><span class="tag tag-orange">TTGTags</span><span class="tag tag-green">SwiftyGif</span><span class="tag tag-green">MediaPlayer</span><span class="tag tag-purple">UIKit</span>
           </div>
-
-          <!-- 1. SINGLE HORIZONTAL SCROLL ROW: video first, then screenshots -->
           <div class="screenshots-scroll">
-            <!-- VIDEO (first) -->
             <div class="iphone-frame">
               <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
@@ -391,7 +358,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
               </svg>
               <video src="assets/meditation-journey/recording.mp4" autoplay loop muted playsinline></video>
             </div>
-            <!-- SCREENSHOTS -->
             <div class="iphone-frame">
               <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
@@ -465,23 +431,15 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
               <img src="assets/meditation-journey/screenshot-6.jpeg" alt="Screenshot 6" />
             </div>
           </div>
-
         </div>
-
-        <!-- OTHER FEATURES -->
+        <!-- WORKOUT PLANNER -->
         <div class="feature-item">
-          <!-- 2. TITLE -->
           <div class="feature-name">Workout Planner</div>
-          <!-- 3. DESCRIPTION -->
           <div class="feature-desc" style="font-size:.92rem;">An AI-powered personalised workout planner with weekly day-wise scheduling, exercise series tracking, calorie and weight monitoring, a nutrition diet plan, and a guided setup questionnaire to tailor the plan to user goals.</div>
-          <!-- 4. TAGS -->
           <div class="feature-tags">
             <span class="tag tag-blue">UIKit</span><span class="tag tag-blue">GCD</span><span class="tag tag-orange">Lottie</span><span class="tag tag-orange">MarqueeLabel</span><span class="tag tag-green">DGCharts</span><span class="tag tag-green">SkeletonView</span><span class="tag tag-purple">MoEngage</span><span class="tag tag-purple">REST APIs</span>
           </div>
-
-          <!-- 1. SINGLE HORIZONTAL SCROLL ROW: video first, then screenshots -->
           <div class="screenshots-scroll">
-            <!-- VIDEO (first) -->
             <div class="iphone-frame">
               <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
@@ -663,26 +621,16 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
               <img src="assets/workout-planner/screenshot-14.jpeg" alt="Screenshot 14" />
             </div>
           </div>
-
         </div>
-
         <!-- SHOW MORE TOGGLE -->
         <div id="extraFeatures" style="display:none;flex-direction:column;gap:1rem;">
-
-        <!-- OTHER FEATURES -->
         <div class="feature-item">
-          <!-- 2. TITLE -->
-          <div class="feature-name">Mind Screen — Pagination & Filters</div>
-          <!-- 3. DESCRIPTION -->
+          <div class="feature-name">Mind Screen — Pagination &amp; Filters</div>
           <div class="feature-desc" style="font-size:.92rem;">A fully redesigned meditation discovery screen with infinite pagination, sticky tag-based filtering, a full-screen highlight carousel, recents section, deep link navigation, and an advanced filter sheet for language, type, and duration.</div>
-          <!-- 4. TAGS -->
           <div class="feature-tags">
             <span class="tag tag-blue">UIKit</span><span class="tag tag-blue">Deep Linking</span><span class="tag tag-orange">TTGTags</span><span class="tag tag-orange">SkeletonView</span><span class="tag tag-green">Pagination</span><span class="tag tag-green">GCD</span><span class="tag tag-purple">MoEngage</span><span class="tag tag-purple">REST APIs</span>
           </div>
-
-          <!-- 1. SINGLE HORIZONTAL SCROLL ROW: video first, then screenshots -->
           <div class="screenshots-scroll">
-            <!-- VIDEO (first) -->
             <div class="iphone-frame">
               <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
@@ -695,7 +643,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
               </svg>
               <video src="assets/meditation-mind/recording.mp4" autoplay loop muted playsinline></video>
             </div>
-            <!-- SCREENSHOTS -->
             <div class="iphone-frame">
               <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
@@ -746,21 +693,88 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
             </div>
           </div>
         </div>
-
         <div class="feature-item">
-          <!-- TITLE with logo -->
           <div style="display:flex;align-items:center;gap:.75rem;">
             <img src="assets/logos/moengage.png" alt="MoEngage" style="width:28px;height:28px;border-radius:6px;object-fit:contain;background:#fff;padding:3px;flex-shrink:0;" />
             <div class="feature-name">MoEngage Integration</div>
           </div>
-          <!-- DESCRIPTION -->
           <div class="feature-desc" style="font-size:.92rem;">Integrated MoEngage iOS SDK for cross-channel user engagement — covering push notifications via APNs, in-app messages, custom event tracking, user attribute profiling, and install/update differentiation to power targeted marketing campaigns.</div>
-          <!-- TAGS -->
           <div class="feature-tags">
             <span class="tag tag-blue">MoEngageSDK</span><span class="tag tag-blue">Push Notifications</span><span class="tag tag-orange">In-App Messages</span><span class="tag tag-orange">Event Tracking</span><span class="tag tag-green">User Attributes</span><span class="tag tag-purple">SPM</span>
           </div>
         </div>
-
+        <div class="feature-item">
+          <div class="feature-name">Personal Coach — AI Chat</div>
+          <div class="feature-desc" style="font-size:.92rem;">A conversational AI coach built into Level Supermind that lets users ask wellness, meditation, and lifestyle questions via text or voice. Features real-time speech-to-text via SFSpeechRecognizer, live audio-level visualisation, automatic silence detection, smart suggestion chips for quick replies, multi-session chat history, and inline content recommendations — all backed by a streaming-ready REST API.</div>
+          <div class="feature-tags">
+            <span class="tag tag-blue">Speech Framework</span><span class="tag tag-blue">SFSpeechRecognizer</span>
+            <span class="tag tag-orange">AVAudioEngine</span><span class="tag tag-orange">AVFoundation</span>
+            <span class="tag tag-green">UIKit</span><span class="tag tag-green">UITableView</span>
+            <span class="tag tag-purple">REST APIs</span><span class="tag tag-purple">GCD</span>
+          </div>
+          <div class="screenshots-scroll">
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <video src="assets/personal-coach/recording.mp4" autoplay loop muted playsinline></video>
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/personal-coach/screenshot-1.jpeg" alt="Screenshot 1" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/personal-coach/screenshot-2.jpeg" alt="Screenshot 2" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/personal-coach/screenshot-3.jpeg" alt="Screenshot 3" />
+            </div>
+            <div class="iphone-frame">
+              <svg class="iphone-svg" viewBox="0 0 300 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="296" height="606" rx="38" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="4"/>
+                <rect x="10" y="10" width="280" height="590" rx="32" fill="#000"/>
+                <rect x="95" y="14" width="110" height="28" rx="14" fill="#1a1a1a"/>
+                <rect x="-2" y="140" width="4" height="50" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="205" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="-2" y="290" width="4" height="70" rx="2" fill="#2a2a2a"/>
+                <rect x="298" y="175" width="4" height="90" rx="2" fill="#2a2a2a"/>
+              </svg>
+              <img src="assets/personal-coach/screenshot-4.jpeg" alt="Screenshot 4" />
+            </div>
+          </div>
+        </div>
         <div class="feature-item">
           <div style="display:flex;align-items:center;gap:.75rem;">
             <span style="font-size:1.3rem;flex-shrink:0;">🛒</span>
@@ -812,11 +826,8 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
         </button>
       </div>
     </div>
-
-
   </div>
 </section>
-
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-inner">
@@ -850,7 +861,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
           <span class="tag tag-purple">Push Notifications</span><span class="tag tag-purple">GCD</span>
         </div>
       </div>
-
       <div class="exp-card reveal">
         <div class="exp-header">
           <div class="exp-header-left">
@@ -877,13 +887,12 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
     </div>
   </div>
 </section>
-
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
     <div class="reveal">
       <div class="section-tag">Toolkit</div>
-      <h2 class="section-title">Skills & Technologies</h2>
+      <h2 class="section-title">Skills &amp; Technologies</h2>
       <p class="section-sub">Highlighted in <span style="color:var(--blue)">blue</span> = expert level.</p>
     </div>
     <div class="skills-grid">
@@ -901,7 +910,7 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
         </div>
       </div>
       <div class="skill-group reveal">
-        <div class="skill-group-title"><span>🔧</span> Frameworks & Libraries</div>
+        <div class="skill-group-title"><span>🔧</span> Frameworks &amp; Libraries</div>
         <div class="skill-chips">
           <span class="chip chip-expert">AVFoundation</span><span class="chip chip-expert">StoreKit</span>
           <span class="chip chip-expert">Firebase</span><span class="chip chip-expert">RevenueCat</span>
@@ -910,15 +919,15 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
         </div>
       </div>
       <div class="skill-group reveal">
-        <div class="skill-group-title"><span>🛠</span> Tools & Platforms</div>
+        <div class="skill-group-title"><span>🛠</span> Tools &amp; Platforms</div>
         <div class="skill-chips">
-          <span class="chip chip-expert">Xcode</span><span class="chip chip-expert">Git & GitHub</span>
+          <span class="chip chip-expert">Xcode</span><span class="chip chip-expert">Git &amp; GitHub</span>
           <span class="chip">CocoaPods</span><span class="chip">Swift Package Manager</span>
           <span class="chip">TestFlight</span><span class="chip">JIRA</span><span class="chip">Slack</span>
         </div>
       </div>
       <div class="skill-group reveal">
-        <div class="skill-group-title"><span>💡</span> Principles & Patterns</div>
+        <div class="skill-group-title"><span>💡</span> Principles &amp; Patterns</div>
         <div class="skill-chips">
           <span class="chip chip-expert">Objective-C</span><span class="chip chip-expert">OOP</span>
           <span class="chip chip-expert">SOLID</span><span class="chip">POP</span>
@@ -930,7 +939,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
     </div>
   </div>
 </section>
-
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-inner">
@@ -941,7 +949,7 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
     <div class="edu-section-grid">
       <div class="edu-card reveal">
         <img class="edu-logo" src="assets/logos/lpu.png" alt="LPU" />
-        <div class="edu-degree">B.Tech — Computer Science & Engineering</div>
+        <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
         <div class="edu-school">Lovely Professional University</div>
         <div class="edu-year">2018 – 2022</div>
         <div class="edu-grade">CGPA: 8.27</div>
@@ -963,7 +971,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
     </div>
   </div>
 </section>
-
 <!-- CERTIFICATIONS -->
 <section id="certifications" style="background:var(--bg);">
   <div class="section-inner">
@@ -983,7 +990,7 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
       <div class="cert-card reveal">
         <img class="cert-logo" src="assets/logos/geeksforgeeks.png" alt="GeeksForGeeks" />
         <div>
-          <div class="cert-name">Data Structures & Algorithms</div>
+          <div class="cert-name">Data Structures &amp; Algorithms</div>
           <div class="cert-by">GeeksForGeeks</div>
           <div class="cert-year">July 2020</div>
         </div>
@@ -991,7 +998,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
     </div>
   </div>
 </section>
-
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
@@ -1028,7 +1034,7 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
             <div class="contact-link-icon" style="background:rgba(255,255,255,.05);color:var(--text)">⌨️</div>
             <div>
               <div class="contact-link-text">github.com/Manojsuthar2000</div>
-              <div class="contact-link-sub">Code & projects</div>
+              <div class="contact-link-sub">Code &amp; projects</div>
             </div>
           </a>
         </div>
@@ -1066,7 +1072,6 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
     </div>
   </div>
 </section>
-
 <footer>
   <div class="footer-copy">© 2025 <span>Manoj Suthar</span> — Built with Swift thinking ⚡</div>
   <div class="footer-links">
@@ -1075,19 +1080,16 @@ footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-cont
     <a href="https://github.com/Manojsuthar2000" target="_blank">GitHub</a>
   </div>
 </footer>
-
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
 document.querySelectorAll('.exp-grid, .projects-grid, .skills-grid, .edu-section-grid, .cert-grid').forEach(grid => {
   grid.querySelectorAll('.reveal').forEach((el, i) => {
     el.style.transitionDelay = (i * 0.08) + 's';
   });
 });
-
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll', () => {
